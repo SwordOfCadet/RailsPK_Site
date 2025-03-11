@@ -9,4 +9,4 @@
 - Responsive Design  
 
 ## 🚀 Live Preview  
-[Demo Link](therailspk.surge.sh) *(Add live link after deployment)*
+(therailspk.surge.sh) *(Add live link after deployment)*
