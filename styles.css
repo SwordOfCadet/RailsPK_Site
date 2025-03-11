@@ -27,6 +27,14 @@ nav ul li a {
     font-size: 18px;
 }
 
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
 .gallery {
     display: flex;
     justify-content: center;
