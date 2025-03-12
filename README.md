@@ -1,30 +1,18 @@
-🚆 Rails PK - Train Videos & Images
+# 🚆 Rails PK - Train Videos & Images
 
-Rails PK ek single-page website hai jo train videos aur images showcase karti hai.
+**Rails PK** ek **Single Page Application (SPA)** hai jo trains aur railway-related content showcase karta hai. Yeh **HTML, CSS, aur JavaScript** ka use karke banaya gaya hai.
 
-🌟 Features:
+## 🌟 Features  
+- Train videos ka grid layout (2 per row)
+- Image gallery slider using Bootstrap Carousel
+- Social media buttons (TikTok, Instagram, Facebook, WhatsApp)
+- Fully responsive design 
 
-✅ Train videos ka grid layout (2 per row)✅ Image gallery slider using Bootstrap Carousel✅ Social media buttons (TikTok, Instagram, Facebook, WhatsApp)✅ Fully responsive design
-
-📢 Live Demo
-
+## 📢 Live Demo 
 🔗 therailspk.surge.sh
 
-🚀 How to Run Locally
-
-Clone the repository:
-
-git clone https://github.com/SwordOfCadet/RailsPK_Site.git
-cd RailsPK_Site
-
-Open index.html in your browser.
-
-📌 Tech Stack
-
-HTML, CSS, JavaScript
-
-Bootstrap 5
-
-GitHub for version control
-
-Surge.sh for deployment
+## 📌 Tech Stack
+- HTML, CSS, JavaScript
+- Bootstrap 5
+- GitHub for version control
+- Surge.sh for deployment
