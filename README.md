@@ -1,12 +1,17 @@
-# Rails PK - Static SPA 🚆
+🚆 Rails PK - Train Videos & Images
+Rails PK ek single-page website hai jo train videos aur images showcase karti hai.
 
-**Rails PK** ek **Single Page Application (SPA)** hai jo trains aur railway-related content showcase karta hai. Yeh **HTML, CSS, aur JavaScript** ka use karke banaya gaya hai.
+🌟 Features:
+✅ Train videos ka grid layout (2 per row)
+✅ Image gallery slider using Bootstrap Carousel
+✅ Social media buttons (TikTok, Instagram, Facebook, WhatsApp)
+✅ Fully responsive design
 
-## 🌟 Features  
-- Smooth Scrolling Navigation  
-- Embedded YouTube Train Videos  
-- Dynamic Train Gallery (Unsplash API se images)  
-- Responsive Design  
+📢 Live Demo
+🔗 therailspk.surge.sh
 
-## 🚀 Live Preview  
-[Demo Link](therailspk.surge.sh) *(Add live link after deployment)*
+📌 Tech Stack
+HTML, CSS, JavaScript
+Bootstrap 5
+GitHub for version control
+Surge.sh for deployment
