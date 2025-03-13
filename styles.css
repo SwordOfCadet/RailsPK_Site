@@ -1,9 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
+    border-radius: 20px;
+    overflow: auto;
+    transition: all 0.3s ease-in-out;
 }
 
 nav {
@@ -130,3 +128,25 @@ body.dark-mode {
     background-color: #1a1a1a;
 }
 
+/* Card Styling with Rounded Corners */
+.card, .container, .navbar, section {
+    border-radius: 20px;
+    overflow: auto;
+}
+
+/* Dark Mode Cards */
+.dark-mode .card, .dark-mode .container, .dark-mode .navbar, .dark-mode section {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+/* Remove White Borders in Dark Mode */
+.dark-mode * {
+    border-color: transparent !important;
+}
+
+/* Smooth Hover Effect */
+.card:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}

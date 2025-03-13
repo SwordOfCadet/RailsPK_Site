@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Dark Mode Toggle
+// Dark Mode Toggle Button
 document.getElementById("darkModeToggle").addEventListener("click", function() {
     document.body.classList.toggle("dark-mode");
-    
+
     // Button Icon Change
     if (document.body.classList.contains("dark-mode")) {
         this.innerHTML = "☀️";
