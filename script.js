@@ -7,3 +7,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+// Dark Mode Toggle
+document.getElementById("darkModeToggle").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+    
+    // Button Icon Change
+    if (document.body.classList.contains("dark-mode")) {
+        this.innerHTML = "☀️";
+        this.classList.remove("btn-light");
+        this.classList.add("btn-dark");
+    } else {
+        this.innerHTML = "🌙";
+        this.classList.remove("btn-dark");
+        this.classList.add("btn-light");
+    }
+});
+

@@ -76,3 +76,57 @@ nav ul li a {
 .instagram { background-color: #E4405F; }
 .facebook { background-color: #3b5998; }
 .whatsapp { background-color: #25D366; }
+
+#home {
+    background: url('images/train-bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center bottom;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparency effect */
+}
+
+/* Dark Mode for Entire Page */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Navbar & Footer Dark Mode */
+.dark-mode .navbar, .dark-mode footer {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+
+/* Links & Buttons */
+.dark-mode a {
+    color: #ffcc00 !important; /* Yellowish links */
+}
+
+.dark-mode .btn {
+    background-color: #333;
+    color: white;
+    border: 1px solid #ffcc00;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Sections */
+.dark-mode section {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Cards & Containers */
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark-mode .carousel {
+    background-color: #1a1a1a;
+}
+
