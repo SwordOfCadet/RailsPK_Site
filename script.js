@@ -129,3 +129,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchTrendingVideos(); // Initial fetch
 });
+
+// Watch History will get saved! //
+
+document.addEventListener("DOMContentLoaded", function () {
+    const historyContainer = document.getElementById("history-container");
+    const clearHistoryBtn = document.getElementById("clearHistoryBtn");
+
+    // ✅ Function: Watch History Load Kare
+    function loadWatchHistory() {
+        const history = JSON.parse(localStorage.getItem("watchHistory")) || [];
+        historyContainer.innerHTML = ""; // Clear previous content
+
+        if (history.length === 0) {
+            historyContainer.innerHTML = "<p class='text-center'>No videos watched yet.</p>";
+            return;
+        }
+
+        history.forEach(video => {
+            const videoCard = document.createElement("div");
+            videoCard.classList.add("col-12", "col-md-6");
+            videoCard.innerHTML = `
+                <div class="card">
+                    <iframe class="card-img-top" width="100%" height="200" src="https://www.youtube.com/embed/${video}" allowfullscreen></iframe>
+                </div>
+            `;
+            historyContainer.appendChild(videoCard);
+        });
+    }
+
+    // ✅ Function: Video Watch Hone Par Save Ho
+    function saveToWatchHistory(videoId) {
+        let history = JSON.parse(localStorage.getItem("watchHistory")) || [];
+        
+        if (!history.includes(videoId)) {
+            history.push(videoId);
+            localStorage.setItem("watchHistory", JSON.stringify(history));
+        }
+    }
+
+    // ✅ Function: Clear Watch History
+    clearHistoryBtn.addEventListener("click", function () {
+        localStorage.removeItem("watchHistory");
+        loadWatchHistory();
+    });
+
+    // ✅ Event Listener: Jab koi video click kare, to save ho
+    document.addEventListener("click", function (event) {
+        if (event.target.tagName === "IFRAME") {
+            const videoUrl = event.target.src;
+            const videoId = new URL(videoUrl).pathname.split("/embed/")[1];
+
+            if (videoId) {
+                saveToWatchHistory(videoId);
+            }
+        }
+    });
+
+    loadWatchHistory(); // Page Load Hone Par Watch History Show Ho
+});
