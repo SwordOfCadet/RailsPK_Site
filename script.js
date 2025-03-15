@@ -75,3 +75,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchVideos(); // Initial fetch
 });
+
+// Fetch Trending Videos Using YouTube API //
+
+document.addEventListener("DOMContentLoaded", function () {
+    const API_KEY = "AIzaSyCqtkjnU54D8IJBHLAIDFGUfAvyJfe4Z0I"; // 👈 Yahan apni API key paste karo
+    const CHANNEL_ID = "UC0jiPBcE-2QbiBLt2m3MHSQ"; // 👈 Yahan apna YouTube channel ID paste karo
+    const trendingContainer = document.getElementById("trending-video-container");
+    const loadMoreTrendingBtn = document.getElementById("loadMoreTrendingBtn");
+    let trendingPageToken = "";
+    let trendingVideosToShow = 6; // Pehle sirf 6 videos dikhayenge
+
+    function fetchTrendingVideos(loadMore = false) {
+        let apiURL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=viewCount&maxResults=${trendingVideosToShow}`;
+
+        if (loadMore && trendingPageToken) {
+            apiURL += `&pageToken=${trendingPageToken}`;
+        }
+
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                trendingPageToken = data.nextPageToken || "";
+
+                if (!loadMore) {
+                    trendingContainer.innerHTML = ""; // Clear previous content if first load
+                }
+
+                data.items.forEach(item => {
+                    if (item.id.videoId) {
+                        const videoCard = document.createElement("div");
+                        videoCard.classList.add("col-12", "col-md-6");
+                        videoCard.innerHTML = `
+                            <div class="card">
+                                <iframe class="card-img-top" width="100%" height="200" src="https://www.youtube.com/embed/${item.id.videoId}" allowfullscreen></iframe>
+                            </div>
+                        `;
+                        trendingContainer.appendChild(videoCard);
+                    }
+                });
+
+                // Hide Load More button if no more videos
+                if (!trendingPageToken) {
+                    loadMoreTrendingBtn.style.display = "none";
+                }
+            })
+            .catch(error => console.error("Error fetching trending videos:", error));
+    }
+
+    loadMoreTrendingBtn.addEventListener("click", function () {
+        fetchTrendingVideos(true);
+    });
+
+    fetchTrendingVideos(); // Initial fetch
+});
