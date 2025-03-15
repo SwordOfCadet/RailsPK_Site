@@ -25,16 +25,16 @@ document.getElementById("darkModeToggle").addEventListener("click", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const API_KEY = "AIzaSyDCG-5z6oNHTydx7kpzOUk0umHAs0JySrw"; // 👈 Yahan apni API key paste karo
-    const CHANNEL_ID = "UC0jiPBcE-2QbiBLt2m3MHSQ"; // 👈 Yahan apne YouTube channel ka ID paste karo
+    const API_KEY = "AIzaSyCqtkjnU54D8IJBHLAIDFGUfAvyJfe4Z0I"; // 👈 Yahan apni API key paste karo
+    const CHANNEL_ID = "UC0jiPBcE-2QbiBLt2m3MHSQ"; // 👈 Yahan apna YouTube channel ID paste karo
     const videoContainer = document.getElementById("video-container");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
     let nextPageToken = "";
     let videosToShow = 6; // Pehle sirf 6 videos dikhayenge
 
     function fetchVideos(loadMore = false) {
-        let apiURL = `https://www.googleapis.com/youtube/v3/search?key=${AIzaSyDCG-5z6oNHTydx7kpzOUk0umHAs0JySrw}&channelId=${UC0jiPBcE-2QbiBLt2m3MHSQ}&part=snippet,id&order=date&maxResults=${videosToShow}`;
-        
+        let apiURL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${videosToShow}`;
+
         if (loadMore && nextPageToken) {
             apiURL += `&pageToken=${nextPageToken}`;
         }
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 nextPageToken = data.nextPageToken || "";
-                
+
                 if (!loadMore) {
                     videoContainer.innerHTML = ""; // Clear previous content if first load
                 }
