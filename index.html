@@ -7,7 +7,7 @@
     <link rel="icon" type="images/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="canonical" href="https://therailspk.surge.sh">
+    <link rel="canonical" href="https://therails.pk">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y94XX1PVE8"></script>
 <!-- Basic SEO Meta Tags -->
@@ -32,26 +32,34 @@
 </script>
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
         <div class="container">
-            <a class="navbar-brand" href="#home">Rails PK</a>
-            <button class="btn btn-light" id="darkModeToggle">🌙</button>
+            <a class="navbar-brand fw-bold" href="#">Rails PK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="darkModeToggle" class="btn btn-outline-light ms-3 rounded-circle">
+                            🌙
+                        </button>
+                    </li>                    
                 </ul>
             </div>
         </div>
     </nav>
     
-    <section id="home" class="text-center py-5 text-white">
+    <section id="about-us" class="text-center py-5 text-white">
         <div class="container">
-            <h1>Welcome to Rails PK</h1>
-            <p>Your ultimate source for train videos and images!</p>
+            <h1>We are Railfans</h1>
+            <p>Welcome to Rails PK! 🚂 Here, we bring you the best train journeys, moments, and adventures from across Pakistan. Follow us for exciting and captivating reels that showcase the beauty of our railways and the thrill of train travel.
+            </p>
         </div>
     </section>
        
@@ -87,26 +95,20 @@
     
 
     <section id="gallery" class="container py-5">
-        <h2 class="text-center">Train Gallery</h2>
+        <h2 class="text-center">🚆 Train Gallery</h2>
         <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/image1.jpg" class="d-block w-100 rounded shadow">
+                    <img src="images/image1.jpg" class="d-block w-100 rounded">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/image2.jpg" class="d-block w-100 rounded shadow">
+                    <img src="images/image2.jpg" class="d-block w-100 rounded">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/image3.jpg" class="d-block w-100 rounded shadow">
+                    <img src="images/image3.jpg" class="d-block w-100 rounded">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/image4.jpg" class="d-block w-100 rounded shadow">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/image5.jpg" class="d-block w-100 rounded shadow">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/image 7.jpg" class="d-block w-100 rounded shadow">
+                    <img src="images/image4.jpg" class="d-block w-100 rounded">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
@@ -117,6 +119,7 @@
             </button>
         </div>
     </section>
+    
     
     <section id="contact" class="text-center bg-dark text-white py-5">
         <h2>Contact Us</h2>

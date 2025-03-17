@@ -1,27 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
-        });
+document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
 });
 
-// ✅ Dark Mode Toggle Button
+document.addEventListener("DOMContentLoaded", function () {
+    let imageCarousel = new bootstrap.Carousel(document.getElementById("imageCarousel"), {
+        interval: 3000, // Auto-slide every 3 seconds
+        ride: "carousel"
+    });
+});
+
+
 document.getElementById("darkModeToggle").addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");
 
     if (document.body.classList.contains("dark-mode")) {
         this.innerHTML = "☀️";
-        this.classList.remove("btn-light");
-        this.classList.add("btn-dark");
+        this.classList.remove("btn-outline-light");
+        this.classList.add("btn-outline-dark");
     } else {
         this.innerHTML = "🌙";
-        this.classList.remove("btn-dark");
-        this.classList.add("btn-light");
+        this.classList.remove("btn-outline-dark");
+        this.classList.add("btn-outline-light");
     }
 });
+
 
 async function fetchVideos() {
     const API_KEY = "AIzaSyCqtkjnU54D8IJBHLAIDFGUfAvyJfe4Z0I";  // 👈 Apni YouTube API Key paste karo

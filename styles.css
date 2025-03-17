@@ -1,3 +1,48 @@
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Us Section */
+#about-us {
+    background: linear-gradient(to right, #222, #333);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#about-us h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#about-us p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body.dark-mode #about-us img {
+    filter: brightness(1) contrast(1);
+    display: block !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #about-us h1 {
+        font-size: 2rem;
+    }
+    
+    #about-us p {
+        font-size: 1rem;
+    }
+}
 body {
     border-radius: 20px;
     height: auto;
@@ -41,19 +86,24 @@ nav ul li a {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px;
+/* 🔥 Image Slider Styling */
+#imageCarousel {
+    max-width: 800px; /* Set max width same as video */
+    margin: auto; /* Center the slider */
 }
 
-.gallery img {
-    width: 300px;
-    height: 200px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.carousel-inner img {
+    height: 315px; /* Same height as videos */
+    object-fit: cover; /* Image ko proper fit karne ke liye */
+    border-radius: 12px;
 }
+
+/* 🔥 Dark Mode Fix */
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+    filter: invert(1); /* Arrows ko white karna dark mode ke liye */
+}
+
 
 .social-buttons {
     display: flex;
@@ -129,16 +179,29 @@ body.dark-mode {
     background-color: #1a1a1a;
 }
 
-/* Card Styling with Rounded Corners */
-.card, .container, .navbar, section {
-    border-radius: 20px;
-    overflow: auto;
+/* 🔥 Card Styling */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Dark Mode Cards */
-.dark-mode .card, .dark-mode .container, .dark-mode .navbar, .dark-mode section {
-    background-color: #1e1e1e;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Dark Mode Cards */
+.dark-mode .card {
+    background-color: #333;
     color: white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .card:hover {
+    box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Remove White Borders in Dark Mode */
@@ -172,4 +235,92 @@ body.dark-mode {
 .dark-mode #watch-history {
     background-color: #2c2c2c;
     color: white;
+}
+
+/* 🔥 Navbar Styling */
+.navbar {
+    padding: 12px 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* 🔥 Dark Mode Navbar */
+.dark-mode .navbar {
+    background: #222 !important;
+}
+
+/* 🔥 Navbar Links Hover Effect */
+.navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f1c40f !important;
+}
+
+/* 🔥 General Button Styling */
+.btn-custom {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔥 Primary Buttons */
+.btn-primary {
+    background-color: #ff5733; /* Custom Orange */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* Darker Orange */
+}
+
+/* 🔥 Dark Mode Fix */
+.dark-mode .btn-primary {
+    background-color: #ff9800;
+}
+
+.dark-mode .btn-primary:hover {
+    background-color: #e68900;
+}
+
+/* 🔥 About Us Section Styling */
+#about-us {
+    background: url('images/train-bg.jpg') center/cover no-repeat; /* 👈 Background Image */
+    padding: 80px 20px 60px;
+    margin-top: 70px; 
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔥 About Us Text Styling */
+#about-us h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#about-us p {
+    font-size: 1.2rem;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 🔥 Dark Mode Compatibility */
+.dark-mode #about-us {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+}
+
+.dark-mode #about-us h1,
+.dark-mode #about-us p {
+    color: #fff;
 }
