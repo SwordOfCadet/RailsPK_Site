@@ -141,30 +141,56 @@ body {
     padding: 80px 20px;
     text-align: center;
     color: white;
+    position: relative;
+}
+
+/* 🔥 Overlay for better contrast */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
 }
 
 /* 🔥 Styled Welcome Text */
 .welcome-heading {
     font-size: 42px;
     font-weight: bold;
-    background: linear-gradient(to right, #000000, #434343);
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 2;
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* 🔥 Welcome Paragraph */
 .welcome-text {
     font-size: 18px;
-    color: #ddd;
+    color: #f1f1f1;
     max-width: 600px;
     margin: auto;
+    position: relative;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* 🔥 Dark Mode Support */
+.dark-mode .welcome-heading {
+    background: linear-gradient(to right, #ffffff, #bbbbbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .dark-mode .welcome-text {
-    color: #bbb;
+    color: #ddd;
 }
 
 /* 🔥 Responsive Adjustments */
@@ -176,4 +202,3 @@ body {
         font-size: 16px;
     }
 }
-
