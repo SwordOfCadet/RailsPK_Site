@@ -9,7 +9,7 @@
 - Fully responsive design 
 
 ## 📢 Live Demo 
-🔗 therailspk.surge.sh
+🔗 therails.pk
 
 ## 📌 Tech Stack
 - HTML, CSS, JavaScript
