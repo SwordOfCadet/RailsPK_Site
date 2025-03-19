@@ -1,3 +1,4 @@
+// ✅ Smooth Scroll Effect for Navbar Links
 document.querySelectorAll(".nav-link").forEach(link => {
     link.addEventListener("click", function (e) {
         e.preventDefault();
@@ -6,59 +7,73 @@ document.querySelectorAll(".nav-link").forEach(link => {
     });
 });
 
+// ✅ Image Carousel Auto-Slide
 document.addEventListener("DOMContentLoaded", function () {
     let imageCarousel = new bootstrap.Carousel(document.getElementById("imageCarousel"), {
-        interval: 3000, // Auto-slide every 3 seconds
+        interval: 3000,
         ride: "carousel"
     });
 });
 
+// ✅ YouTube API Integration with Load More Feature
+const API_KEY = "AIzaSyAJySKdCS1_BNrvFAf6hGtvMbU0TLgO_7w";  
+const CHANNEL_ID = "UC0jiPBcE-2QbiBLt2m3MHSQ";  
+let nextPageToken = ""; // To store next page token for pagination
 
-document.getElementById("darkModeToggle").addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
+let totalVideosLoaded = 0; // Track number of videos loaded
 
-    if (document.body.classList.contains("dark-mode")) {
-        this.innerHTML = "☀️";
-        this.classList.remove("btn-outline-light");
-        this.classList.add("btn-outline-dark");
-    } else {
-        this.innerHTML = "🌙";
-        this.classList.remove("btn-outline-dark");
-        this.classList.add("btn-outline-light");
-    }
-});
-
-
-async function fetchVideos() {
-    const API_KEY = "AIzaSyCqtkjnU54D8IJBHLAIDFGUfAvyJfe4Z0I";  // 👈 Apni YouTube API Key paste karo
-    const CHANNEL_ID = "UC0jiPBcE-2QbiBLt2m3MHSQ";  // 👈 Apna YouTube Channel ID paste karo
-    const apiURL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10`;
-
+// ✅ Fetch Videos Function
+async function fetchVideos(loadMore = false) {
     try {
+        let apiURL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=6`;
+
+        if (loadMore && nextPageToken) {
+            apiURL += `&pageToken=${nextPageToken}`;
+        }
+
         const response = await fetch(apiURL);
+        if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+
         const data = await response.json();
+        console.log("API Response:", data); // Debugging Line
 
-        const videoContainer = document.getElementById("video-container");
-        videoContainer.innerHTML = ""; // Purana content clear karo
+        nextPageToken = data.nextPageToken || "";
 
-        data.items.forEach(item => {
-            if (item.id.videoId) {
-                const videoCard = document.createElement("div");
-                videoCard.classList.add("col-12", "col-md-6");
-                videoCard.innerHTML = `
-                    <div class="card">
-                        <iframe class="card-img-top" width="100%" height="200" 
-                            src="https://www.youtube.com/embed/${item.id.videoId}" 
-                            allowfullscreen></iframe>
-                    </div>
+        if (!data.items || data.items.length === 0) {
+            console.warn("No videos found.");
+            return;
+        }
+
+        const videosContainer = document.getElementById("videosContainer");
+
+        data.items.forEach(video => {
+            if (video.id.videoId) {
+                const videoElement = document.createElement("div");
+                videoElement.classList.add("video-item");
+
+                videoElement.innerHTML = `
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>
+                    <p>${video.snippet.title}</p>
                 `;
-                videoContainer.appendChild(videoCard);
+
+                videosContainer.appendChild(videoElement);
             }
         });
+
+        // Hide Load More button if no more videos are available
+        if (!nextPageToken) {
+            document.getElementById("loadMoreBtn").style.display = "none";
+        }
+
     } catch (error) {
-        console.error("Error fetching videos:", error);
+        console.error("YouTube API Error:", error);
     }
 }
 
-// ✅ Call function on page load
-document.addEventListener("DOMContentLoaded", fetchVideos);
+// ✅ Load Initial Videos on Page Load
+document.addEventListener("DOMContentLoaded", () => fetchVideos());
+
+// ✅ Load More Button Event
+document.getElementById("loadMoreBtn").addEventListener("click", function () {
+    fetchVideos(true);
+});
