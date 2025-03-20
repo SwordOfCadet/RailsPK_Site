@@ -77,3 +77,30 @@ document.addEventListener("DOMContentLoaded", () => fetchVideos());
 document.getElementById("loadMoreBtn").addEventListener("click", function () {
     fetchVideos(true);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const blogCards = document.querySelectorAll(".blog-card");
+    const blogPreview = document.getElementById("blogPreview");
+    const previewImage = document.getElementById("previewImage");
+    const previewTitle = document.getElementById("previewTitle");
+    const previewDescription = document.getElementById("previewDescription");
+
+    blogCards.forEach(card => {
+        card.addEventListener("mouseenter", function () {
+            // Get data attributes
+            const title = this.getAttribute("data-title");
+            const image = this.getAttribute("data-image");
+            const description = this.getAttribute("data-description");
+
+            // Update Preview Box
+            previewTitle.innerText = title;
+            previewImage.src = image;
+            previewDescription.innerText = description;
+            blogPreview.classList.remove("hidden");
+        });
+
+        card.addEventListener("mouseleave", function () {
+            blogPreview.classList.add("hidden"); // Hide preview on mouse leave
+        });
+    });
+});

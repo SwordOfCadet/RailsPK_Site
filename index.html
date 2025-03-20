@@ -41,7 +41,7 @@
             <div class="col-lg-6 text-white text-start">
                 <h1 class="welcome-heading">Welcome to Rails PK!</h1>
                 <p class="welcome-text">
-                     Your ultimate source for train videos and railway updates.
+                     Your Ultimate Source for Train Videos and Updates.
                 </p>
                 <a href="#videos" class="btn btn-primary btn-lg me-2">🎥 Watch Videos</a>
                 <a href="#gallery" class="btn btn-success btn-lg">🖼 Explore Gallery</a>
@@ -58,45 +58,75 @@
     </div>
 </section>
 
-    <!-- ✅ Latest Train Videos -->
-    <section id="videos" class="container py-5">
-        <h2 class="text-center">Latest Train Videos</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="video-container">
-            <!-- Videos dynamically load honge -->
+<section id="blog" class="container py-5">
+    <h2>📝 Latest Blog Posts</h2>
+    <div id="blogContainer" class="row">
+        <div class="blog-card" data-title="Pakistan Railway New Schedule 2025" 
+            data-image="images/blog1.jpg"
+            data-description="Pakistan Railways ne naya schedule announce kiya hai...">
+            <h3>Pakistan Railway New Schedule</h3>
         </div>
-        <div id="videosContainer"></div>
-<button id="loadMoreBtn" class="btn btn-primary">Load More</button>
 
-    </section>
+        <div class="blog-card" data-title="Luxury Trains in Pakistan" 
+            data-image="images/blog2.jpg"
+            data-description="Pakistan ki luxury trains ka experience kaisa hai?">
+            <h3>Luxury Trains in Pakistan</h3>
+        </div>
+
+        <div class="blog-card" data-title="Railway Safety Tips" 
+            data-image="images/blog3.jpg"
+            data-description="Aap railway journey ko aur bhi safe bana sakte hain...">
+            <h3>Railway Safety Tips</h3>
+        </div>
+    </div>
+
+    <!-- ✅ Hover Preview Box -->
+    <div id="blogPreview" class="hidden">
+        <img id="previewImage" src="" alt="">
+        <h3 id="previewTitle"></h3>
+        <p id="previewDescription"></p>
+    </div>
+</section>
+
+    <!-- ✅ Latest Train Videos -->
+<section id="videos" class="container py-5">
+    <h2>🎥 Latest Train Videos</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="video-container">
+        <!-- Videos dynamically load honge -->
+    </div>
+    <div id="videosContainer"></div>
+    <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+</section>
 
     <!-- ✅ Image Gallery -->
-    <section id="gallery" class="container py-5">
-        <h2 class="text-center">🚆 Train Gallery</h2>
-        <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active"><img src="images/image1.jpg" class="d-block w-100 rounded"></div>
-                <div class="carousel-item"><img src="images/image2.jpg" class="d-block w-100 rounded"></div>
-                <div class="carousel-item"><img src="images/image3.jpg" class="d-block w-100 rounded"></div>
-                <div class="carousel-item"><img src="images/image4.jpg" class="d-block w-100 rounded"></div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
+<section id="gallery" class="container py-5">
+    <h2>🚆 Train Gallery</h2>
+    <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img src="images/image1.jpg" class="d-block w-100 rounded"></div>
+            <div class="carousel-item"><img src="images/image2.jpg" class="d-block w-100 rounded"></div>
+            <div class="carousel-item"><img src="images/image3.jpg" class="d-block w-100 rounded"></div>
+            <div class="carousel-item"><img src="images/image4.jpg" class="d-block w-100 rounded"></div>
         </div>
-    </section>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</section>
 
-    <!-- ✅ Contact Section -->
-    <section id="contact" class="text-center bg-dark text-white py-5">
-        <h2>Contact Us</h2>
-        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
-            <a href="https://www.tiktok.com/@therailspk" class="btn btn-dark social-btn">TikTok</a>
-            <a href="https://www.instagram.com/therailspk" class="btn btn-danger social-btn">Instagram</a>
-            <a href="https://www.facebook.com/therailspk" class="btn btn-primary social-btn">Facebook</a>
-            <a href="https://wa.me/03198550419" class="btn btn-success social-btn">WhatsApp</a>            
-        </div>
-    </section>
+<!-- ✅ Contact Section -->
+<section id="contact" class="text-center py-5">
+    <h2>📞 Contact Us</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+        <a href="https://www.tiktok.com/@therailspk" class="btn btn-dark social-btn">TikTok</a>
+        <a href="https://www.instagram.com/therailspk" class="btn btn-danger social-btn">Instagram</a>
+        <a href="https://www.facebook.com/therailspk" class="btn btn-primary social-btn">Facebook</a>
+        <a href="https://wa.me/03198550419" class="btn btn-success social-btn">WhatsApp</a>            
+    </div>
+</section>
 
     <footer class="bg-dark text-white text-center py-3">
         <p class="mb-2">&copy; 2025 Rails PK. All rights reserved.</p>
