@@ -104,3 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+var quill = new Quill('#editor-container', {
+    theme: 'snow',
+    modules: {
+        toolbar: '#toolbar-container'
+    }
+});
+
+function savePost() {
+    var content = quill.root.innerHTML;
+    console.log("Saved Post:", content);
+    alert("Post Saved Successfully!");
+}

@@ -270,10 +270,10 @@ body {
 /* 🔥 Base Section Styling */
 section {
     padding: 50px 20px;
-    border-radius: 10px; /* ✅ Rounded Corners */
+    border-radius: 15px; /* ✅ Rounded Corners */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* ✅ Soft Shadow */
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     background: #ffffff; /* Light background for sections */
 }
 
@@ -300,32 +300,18 @@ section h2 {
 /* 🔥 Contact Section Special Styling */
 #contact {
     background: #222; /* ✅ Dark Mode for Contact */
-    border-radius: 0px;
     color: white;
-    margin-bottom: 0; /* ✅ Remove Extra Margin */
-    padding-bottom: 20px; /* ✅ Ensure Proper Spacing */
+    border-radius: 0; /* 🔥 Flattened Corners */
+    margin-bottom: 0; /* 🔥 Merged with Footer */
 }
 
 #contact h2 {
     background: linear-gradient(to right, #28a745, #218838); /* ✅ Green Gradient */
 }
 
-footer {
-    margin-top: -10px; /* ✅ Remove Any Extra Margin */
-    padding-top: 30px;
-    border-radius: 0; 
-}
-
 /* =======================================================
    🎬 Videos, Gallery, & Blog Post Styling
    ======================================================= */
-
-/* 🔥 Rounded Cards for Videos & Blog Posts */
-.video-item, .blog-card {
-    border-radius: 12px; /* ✅ Rounded Corners */
-    overflow: hidden;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-}
 
 /* 🔥 Carousel Images - Gallery */
 .carousel-item img {
@@ -362,6 +348,43 @@ footer {
 
 #blog .btn:hover, #videos .btn:hover, #gallery .btn:hover, #contact .btn:hover {
     opacity: 0.8;
+}
+
+/* =======================================================
+   📱 Responsive Adjustments
+   ======================================================= */
+
+@media (max-width: 768px) {
+    section h2 {
+        font-size: 22px;
+        padding: 12px 25px;
+    }
+    
+    #galleryContainer {
+        grid-template-columns: repeat(2, 1fr); /* ✅ 2 Columns on Tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    #galleryContainer {
+        grid-template-columns: repeat(1, 1fr); /* ✅ 1 Column on Mobile */
+    }
+}
+
+/* =======================================================
+   📢 Blog Post Update - 21 March 2025
+   ======================================================= */
+.blog-post-news {
+    padding: 20px;
+    background: #ffebcc;
+    border-left: 5px solid #ff9900;
+    margin: 20px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.blog-post-news strong {
+    color: #cc5500;
 }
 
 /* =======================================================
